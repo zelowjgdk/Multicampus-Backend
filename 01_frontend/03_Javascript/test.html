@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //  x는 전역변수 블럭(중괄호)안이 아니기때문, 들여쓰기가 안됨 최상위 레벨에서 정의
+      let x = 10;
+
+      function test() {
+        //  여기 안은 로컬변수
+        let y = 20;
+        console.log('test 안', x, y);
+      }
+
+      test();
+      console.log(x, y);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,60 @@
+package org.galapagos.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import lombok.extern.log4j.Log4j;
+
+@Configuration
+@EnableWebSecurity
+@Log4j
+
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/security/all").permitAll().antMatchers("/security/admin")
+				.access("hasRole('ROLE_ADMIN')").antMatchers("/security/member").access("hasRole('ROLE_MEMBER')");
+
+		// 로그인 설정
+		http.formLogin().loginPage("/security/login") // 로그인 페이지 경로
+				.loginProcessingUrl("/security/login") // 제출버튼 누르면 검증
+				.defaultSuccessUrl("/"); // 로그인 성공시 홈으로
+
+		// 로그아웃 설정
+		http.logout().logoutUrl("/security/logout") // POST: 로그아웃 호출 url
+				.invalidateHttpSession(true) // 트루설정시 세션이 무효화되어 로그아웃 시 정보 삭제
+				.deleteCookies("remember-me", "JSESSION-ID") // 로구아웃 시 삭제할 쿠키들
+				// remember-me 쿠키는 사용자를 자동으로 로그인하는데 사용되는 경우가 많음
+				// JSESSION-ID 세션관리를 위한 것
+				.logoutSuccessUrl("/security/logout");
+
+		http.formLogin();
+	}
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		log.info("configure..............................");
+
+		auth.inMemoryAuthentication()
+		    .withUser("admin").password("{noop}1234")
+		    .roles("ADMIN");
+
+		auth.inMemoryAuthentication()
+		    .withUser("member")
+		  //.password("{noop}1234")
+		    .password("$2a$10$EsIMfxbJ6NuvwX7MDj4WqOYFzLU9U/lddCyn0nic5dFo3VfJYrXYC")
+		    .roles("MEMBER");
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+}

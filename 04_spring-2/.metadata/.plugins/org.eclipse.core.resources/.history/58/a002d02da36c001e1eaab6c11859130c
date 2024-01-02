@@ -1,0 +1,19 @@
+package org.galapagos.mapper;
+
+import static org.junit.Assert.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class TimeMapperTest {
+
+	@Autowired
+	private TimeMapper timeMapper;
+
+	@Test
+	public void testGetTime() {
+		log.info(timeMapper.getClass().getName());
+	}
+
+}

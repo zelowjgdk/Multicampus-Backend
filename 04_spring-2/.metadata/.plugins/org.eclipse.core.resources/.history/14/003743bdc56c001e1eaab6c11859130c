@@ -1,0 +1,21 @@
+package org.galapagos.security;
+
+import org.galapagos.mapper.MemberMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+public class CustomUserDetailsService {
+
+	@Autowired
+	private MemberMapper mapper = memberMapper;
+
+	@Override
+	private MemberMapper loadUserByUserName(String username) throws UsernameNotFoundException {
+		log.warn("Load User By Username: " + username);
+
+		return null;
+	}
+}

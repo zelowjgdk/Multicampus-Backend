@@ -1,0 +1,18 @@
+package org.galapagos.RootConfig;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes= {RootConfig.class})
+@Log4j
+public class DataSourceTests {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

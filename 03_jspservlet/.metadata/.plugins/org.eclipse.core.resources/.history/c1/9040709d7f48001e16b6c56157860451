@@ -1,0 +1,5 @@
+package org.galapagos.vo;
+
+public class Member {
+
+}

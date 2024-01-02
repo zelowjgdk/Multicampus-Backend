@@ -1,0 +1,27 @@
+package algorithm.ch03;
+
+import java.util.Arrays;
+
+import algorithm.Util;
+
+//선택정렬 
+public class SortEx05 { 
+	public static void main(String[] args) {
+		int[] array = { 6, 4, 2, 1, 3, 5 };
+
+		for (int i = 0; i < array.length; i++) {
+			int min = array[i];
+			int ix = i;
+
+			// 최솟값 찾기
+			for (int j = 0; j < array.length; j++) {
+				if (array[j] < min) {
+					ix = j;
+					min = array[j];
+				}
+			}
+			Util.swap(array, i, ix);
+		}
+		System.out.println(Arrays.toString(array));
+	}
+}

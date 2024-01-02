@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script>
+      //바디 부분을 해석 완료 후 완전한 돔트리가 구축이 된 후 호출됨
+      widow.onload = function () {
+        //이 함수 안은 DOM이 완성된 상태
+        alert('문서 완성1');
+      };
+
+      //$(익명함수(){});
+      $(function () {
+        //이 함수 안은 DOM이 완성된 상태
+        alert('문서 완성2');
+      });
+
+      //여기 위치는 아직 DOM 미완성
+    </script>
+  </head>
+  <body></body>
+</html>

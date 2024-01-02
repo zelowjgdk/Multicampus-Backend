@@ -1,0 +1,8 @@
+package org.galapagos.vo;
+
+public class User {
+
+	private String userid;
+	private String password;
+	private String email;
+}

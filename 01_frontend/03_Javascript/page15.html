@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      function test() {
+        console.log('테스트');
+        let el = document.getElementById('name');
+        if (el) {
+          console.log(el);
+          let id = el.value;
+          console.log('당신이 입력한 id는 ' + id);
+        }
+      }
+      function add() {
+        console.log('더하기 기능 처리');
+      }
+      function minus() {
+        console.log('빼기 기능 처리');
+      }
+      //test() //함수를 사용(함수를 호출)
+      //test()
+    </script>
+  </head>
+  <body>
+    <input type="text" id="name" value="홍길동" />
+    <button onclick="test()">테스트를 해보자!</button><br />
+    <button onclick="add()">더해보자!</button><br />
+    <button onclick="minus()">빼보자!</button><br />
+  </body>
+</html>

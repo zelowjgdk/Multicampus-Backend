@@ -1,0 +1,8 @@
+package org.galapagos.mapper;
+
+import org.apache.ibatis.annotations.Select;
+import org.galapagos.domain.MemberVO;
+
+public interface MemberMapper {
+	public MemberVO read(String username);
+}

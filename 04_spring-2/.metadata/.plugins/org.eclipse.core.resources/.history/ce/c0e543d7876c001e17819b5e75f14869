@@ -1,0 +1,8 @@
+package org.galapagos.persistence;
+
+
+
+
+public class JDBCTests {
+
+}

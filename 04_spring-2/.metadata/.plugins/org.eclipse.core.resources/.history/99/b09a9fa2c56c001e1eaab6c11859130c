@@ -1,0 +1,5 @@
+package org.galapagos.security;
+
+public class CustomUserDetailsService {
+
+}

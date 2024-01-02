@@ -1,0 +1,10 @@
+package org.galapagos.persistence;
+
+import org.junit.runner.RunWith;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = { RootConfig.class })
+@Log4j
+public class DataSourceTests {
+
+}

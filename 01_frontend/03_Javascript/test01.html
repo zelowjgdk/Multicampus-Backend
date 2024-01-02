@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let x = 20; //전역 변수
+      console.log(x); //전역변수 x 출력
+
+      function test() {
+        let x = 10; // 지역 변수
+        console.log(x); //지역 변수 x 출력
+      }
+
+      test();
+      console.log(x); // 전역 변수 x 출력
+    </script>
+  </head>
+  <body></body>
+</html>

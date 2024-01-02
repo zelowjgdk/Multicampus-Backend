@@ -1,0 +1,10 @@
+
+ackage org.galapagos.config;
+
+public class Abstrac {
+
+	public Abstrac() {
+		super();
+	}
+
+}

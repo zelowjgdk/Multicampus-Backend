@@ -1,0 +1,5 @@
+1693811779553	Move 'views' to 'webapp'
+1693811787062	Move '404.jsp' to 'views'
+1693811789696	Move 'list.jsp' to 'views'
+1693812864225	Rename package 'org.galapagos.패'
+1693812871154	Rename package 'org.galapagos.bo'
